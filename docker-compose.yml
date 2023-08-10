@@ -3,6 +3,7 @@ version: '3'
 services:
   nginx-nexusproxy:
     image: nginx-nexusproxy
+    container_name: nginx-nexusproxy-container
     build:
       context: ./nginx/
       dockerfile: Dockerfile
@@ -16,6 +17,7 @@ services:
 
   nexus-repo:
     image: sonatype/nexus3
+    container_name: nexus
     volumes:
       - 'nexus3-data:/nexus-data'
 
