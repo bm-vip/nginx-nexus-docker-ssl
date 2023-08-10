@@ -7,4 +7,5 @@ What we will achieve here?
 4. Docker proxy registry w/ Nexus3.
 5. Docker hosted registry w/ Nexus3.
 
-
+## generate SSL certificate
+1. 
