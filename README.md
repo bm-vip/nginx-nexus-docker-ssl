@@ -7,5 +7,20 @@ What we will achieve here?
 4. Docker proxy registry w/ Nexus3.
 5. Docker hosted registry w/ Nexus3.
 
-## generate SSL certificate
-1. 
+# generate SSL certificate
+1. Generate a private key
+```
+openssl genrsa -out private.pem 2048
+```
+2. Create a certificate signing request
+```
+openssl req -newkey rsa:2048 -nodes -keyout private.pem -out certificate.csr
+```
+3. Sign the CSR
+```
+openssl x509 -req -in certificate.csr -signkey private.pem -out nexuscert.crt
+```
+4. Combine the private key and certificate into a PEM file
+```
+cat private.pem nexuscert.crt > nexuskey.pem
+```
