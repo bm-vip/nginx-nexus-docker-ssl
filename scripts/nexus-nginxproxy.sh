@@ -32,7 +32,7 @@ openssl req -passin pass:"$1" -subj "/C=US/ST=Random/L=Random/O=Global Security/
 # Add root cert as trusted cert
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         # Linux
-        yum -y install ca-certificates
+        apt-get -y install ca-certificates
         update-ca-trust force-enable
         cp ../certs/rootCA.pem /etc/pki/ca-trust/source/anchors/
         update-ca-trust
@@ -64,4 +64,4 @@ cd ../
 echo $PWD
 
 # Run nginx and nexus containers
-docker-compose up -d
+docker compose up -d
